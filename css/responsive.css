@@ -1,0 +1,189 @@
+/* Responsive Design for Portfolio */
+
+/* Small devices (phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    /* General container adjustments */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Hero section adjustments */
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-text .lead {
+        font-size: 1.2rem;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Navigation adjustments */
+    #navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-links {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    /* Skills section adjustments */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .skill-item {
+        padding: 1.5rem;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    /* Experience section adjustments */
+    .timeline-item {
+        flex-direction: column !important;
+        margin-bottom: 2rem;
+    }
+
+    .timeline-content {
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+    }
+
+    .timeline-image {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+    /* Projects section adjustments */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .project-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Contact section adjustments */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    /* Section title adjustments */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Add smooth scrolling for better mobile experience */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Improve touch targets */
+    button, 
+    .btn,
+    .nav-links a,
+    .social-links a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Improve form elements on mobile */
+    input, 
+    textarea, 
+    select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: 0.75rem;
+    }
+
+    /* Add momentum scrolling on iOS */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+    .hero-content {
+        gap: 3rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra-large devices (large desktops, 1200px and down) */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+}
