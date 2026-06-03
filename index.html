@@ -1,301 +1,440 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Winrose Kiriswa - Software Engineer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/logo.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winrose Kiriswa | Graphic Designer & Web Developer</title>
+    <meta
+      name="description"
+      content="Winrose Kiriswa is a hybrid creative professional skilled in both Graphic Design and Web Development. Explore branding, UI/UX, web apps, and system solutions."
+    />
+    <meta
+      name="keywords"
+      content="graphic design, web development, portfolio, UI/UX, branding, Node.js, MySQL, Photoshop, Figma, React"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-+x0DIZycJXzHfK0Cz9Xndgx7l9aDnT2E0v3ozG0MxkRbYVAeXezO5adY3SCdrNklfOesIHLkQX80PcLxjibM2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <nav id="navbar">
-        <div class="container">
-            <div class="logo-container">
-                <a href="#home" class="logo">WK</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+      <div class="container nav-inner">
+        <a href="#home" class="logo">WK</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <button
+            class="burger"
+            aria-label="Toggle navigation menu"
+            type="button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm Winrose Kiriswa</h1>
-                    <p class="lead">Full Stack Software Engineer</p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i>Hire Me</a>
-                        <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i>View My Work</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/myProfile.jpg" alt="Winrose Kiriswa">
-                </div>
-            </div>
+    <header id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Hybrid Creative Professional</span>
+          <h1>Winrose Kiriswa</h1>
+          <p class="hero-title">Graphic Designer & Web Developer</p>
+          <p class="hero-text">
+            I design visually stunning graphics and build powerful web
+            experiences.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>5+</strong> Years Experience</div>
+            <div><strong>30+</strong> Creative Projects</div>
+            <div><strong>20+</strong> Systems Delivered</div>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a <span class="highlight">passionate Full Stack Software Engineer</span> with expertise in web development and mobile applications. I enjoy creating efficient, scalable solutions that solve real-world problems. My experience spans across modern frameworks like React, Node.js, and Laravel, enabling me to build robust applications from concept to deployment.</p>
-                    <p>With a strong foundation in both front-end and back-end technologies, I strive to deliver high-quality code and exceptional user experiences. I specialize in creating responsive web applications, RESTful APIs, and intuitive user interfaces that prioritize performance and accessibility.</p>
-                    <p>My approach combines clean code practices with agile methodologies, ensuring efficient project delivery and maintainable solutions. I'm particularly passionate about implementing secure authentication systems, optimizing database performance, and creating seamless user experiences across different platforms and devices.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-visual">
+          <div class="hero-card hero-card-photo">
+            <img src="images/myProfile.jpg" alt="Winrose Kiriswa" />
+          </div>
+          <div class="hero-card hero-card-keyboard">
+            <div class="card-label">Featured Project</div>
+            <h3>POS System</h3>
+            <p>Custom dashboard for fast retail operations.</p>
+          </div>
+          <div class="hero-card hero-card-branding">
+            <div class="card-label">Design System</div>
+            <h3>Brand Identity</h3>
+            <p>Visual direction for product storytelling.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-code"></i>
-                    <h3>Frontend</h3>
-                    <div class="skills-list">
-                        <span class="skill">HTML5</span>
-                        <span class="skill">CSS3</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">React</span>
-                        <span class="skill">Bootstrap</span>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-server"></i>
-                    <h3>Backend</h3>
-                    <div class="skills-list">
-                        <span class="skill">PHP</span>
-                        <span class="skill">Node.js</span>
-                        <span class="skill">Python</span>
-                        <span class="skill">MySQL</span>
-                        <span class="skill">MongoDB</span>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile</h3>
-                    <div class="skills-list">
-                        <span class="skill">Android</span>
-                        <span class="skill">Java</span>
-                        <span class="skill">Kotlin</span>
-                        <span class="skill">Flutter</span>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-tools"></i>
-                    <h3>Tools</h3>
-                    <div class="skills-list">
-                        <span class="skill">Git</span>
-                        <span class="skill">Docker</span>
-                        <span class="skill">AWS</span>
-                        <span class="skill">Linux/windows</span>
-                    </div>
-                </div>
+    <main>
+      <section id="about" class="section about-section">
+        <div class="container section-grid">
+          <div class="about-copy">
+            <span class="section-tag">About Me</span>
+            <h2>I build creative brands and powerful web systems.</h2>
+            <p>
+              As a hybrid professional, I blend graphic design with web
+              development to deliver complete digital solutions. I create visual
+              storytelling through branding, UI design, and marketing materials
+              while also building responsive, secure applications and backend
+              systems.
+            </p>
+            <ul class="about-list">
+              <li>
+                Graphic Design: branding, visual storytelling, UI design,
+                marketing assets, photo retouching.
+              </li>
+              <li>
+                Web Development: frontend, backend, API integration, database
+                systems, responsive development, system automation.
+              </li>
+              <li>
+                Passionate about guiding projects from the first concept through
+                design, development, deployment, and support.
+              </li>
+            </ul>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span>Branding</span>
+              <p>Logo systems, brand guidelines, campaign visuals.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Web Developer</h3>
-                        <h4>Freelance</h4>
-                        <div class="timeline-date">2021 - Present</div>
-                        <ul class="timeline-details">
-                            <li>Developed and maintained responsive websites for clients using HTML, CSS, JavaScript, and PHP</li>
-                            <li>Implemented modern UI/UX design principles to create engaging user experiences</li>
-                            <li>Collaborated with clients to understand requirements and deliver customized solutions</li>
-                            <li>Optimized website performance and implemented SEO best practices</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-image">
-                        <img src="images/itAssistant.jpg" alt="Web Developer">
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>IT Assistant</h3>
-                        <h4>Kenya Film Commission</h4>
-                        <div class="timeline-date">2024 (3 months)</div>
-                        <ul class="timeline-details">
-                            <li>Provided technical support to staff</li>
-                            <li>Maintained and troubleshot computer systems and networks</li>
-                            <li>Assisted in software installation and updates</li>
-                            <li>Documented technical procedures and maintained IT inventory</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-image">
-                        <img src="images/webdeveloper.JPG" alt="IT Assistant">
-                    </div>
-                </div>
+            <div class="stat-card">
+              <span>Web Systems</span>
+              <p>POS, management dashboards, portals, Android integrations.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid" id="projects-grid">
-                <!-- Projects will be dynamically loaded here -->
+            <div class="stat-card">
+              <span>Creative Support</span>
+              <p>
+                Design consulting, UI/UX optimization, technical deployment.
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
+      <section id="skills" class="section skills-section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-header">
-                        <h3>Let's Connect</h3>
-                        <p>Feel free to reach out for collaborations or just a friendly hello</p>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="contact-text">
-                                <h3>Email</h3>
-                                <p>kiriswawinrose@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="contact-text">
-                                <h3>Phone</h3>
-                                <p>+254 71540 8990</p>
-                                <div class="contact-buttons">
-                                    <a href="tel:+254715408990" class="btn btn-primary">
-                                        <i class="fas fa-phone"></i>Call Now
-                                    </a>
-                                    <a href="https://wa.me/254715408990" target="_blank" class="whatsapp-link">
-                                        <i class="fab fa-whatsapp"></i>Chat on WhatsApp
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="contact-text">
-                                <h3>Location</h3>
-                                <p>Nairobi, Kenya</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <h3>Follow Me</h3>
-                        <div class="social-icons">
-                            <a href="https://github.com/winnie-" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com/in/winrose-kiriswa" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://twitter.com/winrose_kiriswa" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <div id="form-notification" class="notification">
-                        <i class="fas"></i>
-                        <span class="notification-message"></span>
-                    </div>
-                    <form id="contact-form" action="php/contact-form.php" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Your email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
+          <div class="section-header">
+            <span class="section-tag">Skills</span>
+            <h2>Core strengths across design and development.</h2>
+          </div>
+          <div class="skills-grid">
+            <div class="skills-card">
+              <h3>Graphic Design</h3>
+              <ul>
+                <li>Logo Design</li>
+                <li>Branding & Identity</li>
+                <li>Poster & Flyer Design</li>
+                <li>Social Media Graphics</li>
+                <li>UI/UX Design</li>
+                <li>Photo Editing & Retouching</li>
+              </ul>
             </div>
+            <div class="skills-card">
+              <h3>Web Development</h3>
+              <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>AngularJS / React</li>
+                <li>Node.js backend development</li>
+                <li>MySQL database management</li>
+                <li>API integration</li>
+                <li>Responsive web design</li>
+                <li>System development (POS, management systems)</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
+      <section id="services" class="section services-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Services</span>
+            <h2>How I can help your business grow.</h2>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <i class="fas fa-palette"></i>
+              <h3>Graphic Design Services</h3>
+              <p>
+                Creative branding, marketing visuals, and polished print +
+                digital assets.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-code"></i>
+              <h3>Website Development</h3>
+              <p>
+                Custom websites, interactive applications, and responsive online
+                experiences.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-user-check"></i>
+              <h3>UI/UX Design</h3>
+              <p>
+                Intuitive interfaces, user flows, and modern product
+                experiences.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-id-badge"></i>
+              <h3>Branding & Identity</h3>
+              <p>
+                Logo systems, visual identities, and memorable brand stories.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-desktop"></i>
+              <h3>POS System Development</h3>
+              <p>
+                Retail systems and management platforms built for efficiency and
+                growth.
+              </p>
+            </div>
+            <div class="service-card">
+              <i class="fas fa-headset"></i>
+              <h3>IT Support & Setup</h3>
+              <p>
+                Technical deployment, system setup, and support for businesses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Projects</span>
+            <h2>Recent work across design and development.</h2>
+          </div>
+          <div class="projects-grid" id="projects-grid"></div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Portfolio</span>
+            <h2>Selected visual and technical work.</h2>
+          </div>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="graphic">
+              Graphic Design
+            </button>
+            <button class="filter-btn" data-filter="web">
+              Web Development
+            </button>
+            <button class="filter-btn" data-filter="uiux">UI/UX</button>
+          </div>
+          <div class="portfolio-grid" id="portfolio-grid"></div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Testimonials</span>
+            <h2>Feedback from clients and collaborators.</h2>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p>
+                “Winrose delivered a stunning brand identity and a polished
+                website that helped our startup stand out. The result was fast,
+                professional, and exactly what our team needed.”
+              </p>
+              <div class="testimonial-author">
+                <strong>Sarah Kimani</strong><span>Marketing Lead</span>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                “The POS system transformed our retail workflow and made stock
+                management effortless. The design was clean and the backend
+                operated smoothly from day one.”
+              </p>
+              <div class="testimonial-author">
+                <strong>John Mwangi</strong><span>Business Owner</span>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                “Professional, creative, and technically strong. The UX redesign
+                made our platform easier to use and more visually engaging for
+                customers.”
+              </p>
+              <div class="testimonial-author">
+                <strong>Grace Njoroge</strong><span>Product Manager</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" class="section tools-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Tools</span>
+            <h2>Tools I rely on to build and design.</h2>
+          </div>
+          <div class="tool-grid">
+            <div class="tool-card">
+              <h3>Design Tools</h3>
+              <p>Adobe Photoshop, Illustrator, Figma, Canva</p>
+            </div>
+            <div class="tool-card">
+              <h3>Development Tools</h3>
+              <p>VS Code, Git & GitHub, Node.js, MySQL, Angular / React</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-grid">
+          <div class="contact-intro">
+            <span class="section-tag">Contact</span>
+            <h2>Let's build something meaningful together.</h2>
+            <p>
+              Interested in a creative brand, digital product, or system
+              platform? Reach out and let's bring your next project to life.
+            </p>
+            <div class="contact-details">
+              <div>
+                <i class="fas fa-envelope"></i
+                ><a href="mailto:kiriswawinrose@gmail.com"
+                  >kiriswawinrose@gmail.com</a
+                >
+              </div>
+              <div>
+                <i class="fas fa-phone"></i
+                ><a href="tel:+254715408990">+254 71540 8990</a>
+              </div>
+              <div>
+                <i class="fab fa-linkedin"></i
+                ><a
+                  href="https://linkedin.com/in/winrose-kiriswa"
+                  target="_blank"
+                  >linkedin.com/in/winrose-kiriswa</a
+                >
+              </div>
+              <div>
+                <i class="fab fa-github"></i
+                ><a href="https://github.com/winnie-" target="_blank"
+                  >github.com/winnie-</a
+                >
+              </div>
+            </div>
+            <a href="#" class="btn btn-primary">Download CV</a>
+          </div>
+          <div class="contact-form-panel">
+            <div id="form-notification" class="notification"></div>
+            <form id="contact-form" action="php/contact-form.php" method="POST">
+              <div class="form-row">
+                <label for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Your message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <div class="footer-social">
-                    <a href="https://github.com/winnie-" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/winrose-kiriswa" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/winrose_kiriswa" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><i class="fas fa-envelope"></i> kiriswawinrose@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +254 71540 8990</p>
-                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
-            </div>
+      <div class="container footer-grid">
+        <div>
+          <a href="#home" class="logo footer-logo">WK</a>
+          <p>
+            A modern portfolio that blends creative design with technical
+            development.
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Winrose Kiriswa. All rights reserved.</p>
-            <p>Full Stack Software Engineer</p>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </div>
+        <div class="footer-links">
+          <h4>Social</h4>
+          <a href="https://github.com/winnie-" target="_blank"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+          <a href="https://linkedin.com/in/winrose-kiriswa" target="_blank"
+            ><i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i> Instagram</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Winrose Kiriswa. All rights reserved.</p>
+      </div>
     </footer>
 
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
