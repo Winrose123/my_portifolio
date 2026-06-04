@@ -5,6 +5,7 @@ return [
         'username' => 'kiriswawinrose@gmail.com',
         'password' => 'lpjm cwzv tylp ouiw', // Replace with your actual Gmail App Password
         'port' => 587,
-        'encryption' => 'tls'
+        'encryption' => 'tls',
+        'from_name' => 'Winrose Kiriswa'
     ]
 ];

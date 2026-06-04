@@ -1,7 +1,8 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
-header('Content-Type: application/json');
+ini_set('display_errors', 0);
+ob_start();
+header('Content-Type: application/json; charset=utf-8');
 
 // Include PHPMailer if it exists
 $phpmailer_path = __DIR__ . '/../vendor/autoload.php';
@@ -24,13 +25,22 @@ function sanitize_input($data) {
     return $data;
 }
 
+function send_json_response(array $payload): void {
+    if (ob_get_length()) {
+        ob_clean();
+    }
+
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($payload);
+    exit;
+}
+
 // Check if it's a POST request
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    echo json_encode([
+    send_json_response([
         'success' => false,
         'message' => 'Invalid request method'
     ]);
-    exit;
 }
 
 // Get and sanitize form data
@@ -40,19 +50,17 @@ $message = isset($_POST['message']) ? sanitize_input($_POST['message']) : '';
 
 // Validate inputs
 if (empty($name) || empty($email) || empty($message)) {
-    echo json_encode([
+    send_json_response([
         'success' => false,
         'message' => 'Please fill in all fields'
     ]);
-    exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode([
+    send_json_response([
         'success' => false,
         'message' => 'Invalid email format'
     ]);
-    exit;
 }
 
 // Save message to file (as a backup)
@@ -78,7 +86,16 @@ function send_email_phpmailer($to, $subject, $message_body, $from_email, $from_n
 
     try {
         // Load SMTP configuration
-        $config = require __DIR__ . '/config.php';
+        $configPath = __DIR__ . '/config.php';
+        if (!file_exists($configPath)) {
+            throw new Exception('SMTP configuration file not found.');
+        }
+
+        $config = require $configPath;
+        if (!isset($config['smtp']) || !is_array($config['smtp'])) {
+            throw new Exception('SMTP settings are not configured properly.');
+        }
+
         $smtp = $config['smtp'];
 
         // Server settings
@@ -92,10 +109,15 @@ function send_email_phpmailer($to, $subject, $message_body, $from_email, $from_n
         $mail->CharSet = 'UTF-8';
 
         // Recipients
-        $mail->setFrom($from_email, $from_name);
+        $fromAddress = $smtp['username'];
+        $fromName = $smtp['from_name'] ?? 'Winrose Kiriswa';
+        $mail->setFrom($fromAddress, $fromName);
         $mail->addAddress($to);
-        if ($reply_to) {
+
+        if (!empty($reply_to)) {
             $mail->addReplyTo($reply_to);
+        } elseif (!empty($from_email)) {
+            $mail->addReplyTo($from_email, $from_name);
         }
 
         // Content
@@ -175,17 +197,18 @@ try {
         }
     } else {
         // Fallback to regular mail() function
-        $headers = "From: $email\r\n";
+        $siteEmail = 'kiriswawinrose@gmail.com';
+        $headers = "From: $siteEmail\r\n";
         $headers .= "Reply-To: $email\r\n";
         $headers .= "X-Mailer: PHP/" . phpversion();
 
-        if (!@mail('kiriswawinrose@gmail.com', $winrose_subject, $winrose_message, $headers)) {
+        if (!@mail($siteEmail, $winrose_subject, $winrose_message, $headers)) {
             $success = false;
             $errors[] = "Failed to send notification to Winrose";
         }
 
-        $sender_headers = "From: kiriswawinrose@gmail.com\r\n";
-        $sender_headers .= "Reply-To: kiriswawinrose@gmail.com\r\n";
+        $sender_headers = "From: $siteEmail\r\n";
+        $sender_headers .= "Reply-To: $siteEmail\r\n";
         $sender_headers .= "X-Mailer: PHP/" . phpversion();
 
         if (!@mail($email, $sender_subject, $sender_message, $sender_headers)) {
@@ -195,21 +218,19 @@ try {
     }
 
     if ($success) {
-        echo json_encode([
+        send_json_response([
             'success' => true,
             'message' => 'Thank you! Your message has been sent successfully. Please check your email for confirmation.'
         ]);
     } else {
-        // If some emails failed but we saved the message
-        echo json_encode([
-            'success' => true,
-            'message' => 'Message received. We will get back to you soon. ' . 
-                        ($errors ? '(Note: ' . implode(', ', $errors) . ')' : '')
+        send_json_response([
+            'success' => false,
+            'message' => 'Message received, but email sending failed. ' . ($errors ? 'Details: ' . implode(', ', $errors) : 'Please try again later.')
         ]);
     }
 } catch (Exception $e) {
-    error_log($e->getMessage());
-    echo json_encode([
+    error_log('Contact form exception: ' . $e->getMessage());
+    send_json_response([
         'success' => false,
         'message' => 'There was an error sending your message. Please try again later.'
     ]);

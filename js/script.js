@@ -219,17 +219,25 @@ document.addEventListener("DOMContentLoaded", function () {
           method: "POST",
           body: formData,
         });
-        const result = await response.json();
-        const icon = result.success
-          ? "fa-check-circle"
-          : "fa-exclamation-circle";
-        notification.className = `notification ${result.success ? "success" : "error"} show`;
-        notification.innerHTML = `<i class="fas ${icon}"></i><span class="notification-message">${result.message}</span>`;
-        if (result.success) this.reset();
+
+        const responseText = await response.text();
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch (parseError) {
+          throw new Error(`Invalid server response: ${responseText}`);
+        }
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || `Server error ${response.status}`);
+        }
+
+        notification.className = `notification success show`;
+        notification.innerHTML = `<i class="fas fa-check-circle"></i><span class="notification-message">${result.message}</span>`;
+        this.reset();
       } catch (err) {
         notification.className = "notification error show";
-        notification.innerHTML =
-          '<i class="fas fa-exclamation-circle"></i><span class="notification-message">An error occurred. Please try again later.</span>';
+        notification.innerHTML = `<i class="fas fa-exclamation-circle"></i><span class="notification-message">${err.message}</span>`;
       } finally {
         submitButton.disabled = false;
         submitButton.innerHTML =
