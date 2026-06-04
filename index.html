@@ -357,7 +357,7 @@
                 >
               </div>
             </div>
-            <a href="#" class="btn btn-primary">Download CV</a>
+            <a href="#" id="download-cv" class="btn btn-primary">Download CV</a>
           </div>
           <div class="contact-form-panel">
             <div id="form-notification" class="notification"></div>
@@ -434,6 +434,69 @@
         <p>&copy; 2026 Winrose Kiriswa. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- PDF generation library (html2pdf) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-YcsIPmP9+g2q38rFQ8V0Yqv1p7mY4i0eQk1Zf2ZlYbq9jv0Xxqz3w1p2Bjz+N7wqHjz0gqF9m2a0K6q3ZrY5xg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Hidden printable CV content used to generate the PDF -->
+    <div
+      id="cv-content"
+      style="
+        display: none;
+        background: #ffffff;
+        color: #000;
+        padding: 28px;
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 800px;
+      "
+    >
+      <h1 style="margin-bottom: 6px">Winrose Kiriswa</h1>
+      <p style="margin-top: 0; color: #555">Graphic Designer & Web Developer</p>
+      <hr />
+      <section>
+        <h2 style="font-size: 16px; margin-bottom: 6px">Contact</h2>
+        <p>kiriswawinrose@gmail.com • +254 71540 8990</p>
+      </section>
+      <section>
+        <h2 style="font-size: 16px; margin-bottom: 6px">Profile</h2>
+        <p>
+          Hybrid creative professional combining branding, UI/UX and web systems
+          development. Experienced in POS systems, dashboards and marketing
+          design.
+        </p>
+      </section>
+      <section>
+        <h2 style="font-size: 16px; margin-bottom: 6px">Skills</h2>
+        <ul>
+          <li>
+            Graphic Design: branding, visual identity, UI design, print &
+            digital
+          </li>
+          <li>
+            Web Development: HTML, CSS, JavaScript, React/Angular, Node.js,
+            MySQL
+          </li>
+          <li>System Development: POS, dashboards, API integration</li>
+        </ul>
+      </section>
+      <section>
+        <h2 style="font-size: 16px; margin-bottom: 6px">
+          Experience & Projects
+        </h2>
+        <p>
+          Selected work includes brand identity systems, responsive websites and
+          custom POS/dashboard platforms.
+        </p>
+      </section>
+      <div style="margin-top: 20px; font-size: 12px; color: #666">
+        Generated from portfolio site
+      </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>

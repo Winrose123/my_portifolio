@@ -249,4 +249,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   renderProjects();
   renderPortfolio();
+
+  // Download CV as PDF
+  const downloadBtn = document.getElementById("download-cv");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const cv = document.getElementById("cv-content");
+      if (!cv) return alert("CV content not found");
+      // show content briefly for rendering
+      cv.style.display = "block";
+
+      const opt = {
+        margin: 0.4,
+        filename: "Winrose_Kiriswa_CV.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+      };
+
+      html2pdf()
+        .set(opt)
+        .from(cv)
+        .save()
+        .then(() => {
+          cv.style.display = "none";
+        })
+        .catch((err) => {
+          cv.style.display = "none";
+          console.error("PDF generation error", err);
+          alert("Failed to generate PDF. See console for details.");
+        });
+    });
+  }
 });
