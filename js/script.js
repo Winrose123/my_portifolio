@@ -141,11 +141,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const items = portfolioData.filter(
       (item) => filter === "all" || item.filter === filter,
     );
-    items.forEach((item) => {
-      const card = document.createElement("article");
-      card.className = "portfolio-card";
+      const imgSrc = (project.image || '').replace(/\s/g, '%20');
       card.innerHTML = `
-                <img src="${item.image}" alt="${item.title}">
+          <img src="${imgSrc}" alt="${project.title}">
+      card.className = "portfolio-card";
+        const imgSrc = (item.image || '').replace(/\s/g, '%20');
+        card.innerHTML = `
+                  <img src="${imgSrc}" alt="${item.title}">
                 <div class="portfolio-card-content">
                     <h3>${item.title}</h3>
                     <p>${item.description}</p>
