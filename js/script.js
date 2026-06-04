@@ -61,81 +61,81 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       title: "Social Media Campaign",
-      description:
-        "Visual content and branding for social media engagement and marketing impact.",
-      image: "images/Social Media Campaign.jpg",
-      category: "graphic",
-      tags: ["Canva", "Photoshop", "Branding"],
-      github: "",
-      live: "",
-    },
-  ];
+        downloadBtn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          const cv = document.getElementById("cv-content");
+          if (!cv) return alert("CV content not found");
 
-  const portfolioData = [
-    {
-      title: "Brand Launch Poster",
-      description: "Graphic design piece for a product launch campaign.",
-      image: "images/Brand Launch Poster.jpg",
-      filter: "graphic",
-    },
-    {
-      title: "Dashboard UI",
-      description: "Web application dashboard for system monitoring.",
-      image: "images/Dashboard UI.jpg",
-      filter: "web",
-    },
-    {
-      title: "Mobile UX Flow",
-      description: "User experience screens and interface design.",
-      image: "images/Mobile UX Flow.jpg",
-      filter: "uiux",
-    },
-    {
-      title: "Event Poster Design",
-      description: "Marketing collateral for a creative event.",
-      image: "images/Event Poster Design.jpg",
-      filter: "graphic",
-    },
-    {
-      title: "Responsive Site Mockup",
-      description:
-        "Website design and development for a responsive experience.",
-      image: "images/Responsive Site Mockup.jpg",
-      filter: "web",
-    },
-    {
-      title: "UI Concept Kit",
-      description: "Interface components and style guide for a product.",
-      image: "images/UI Concept Kit.jpg",
-      filter: "uiux",
-    },
-  ];
+          // Build CV content dynamically from page
+          const nameEl = document.querySelector("header .hero-copy h1");
+          const titleEl = document.querySelector(".hero-title");
+          const profileImg = document.querySelector(".hero-card-photo img");
+          const aboutEl = document.querySelector("#about .about-copy p");
+          const skillEls = document.querySelectorAll("#skills .skills-card ul li");
 
-  function renderProjects() {
-    if (!projectsGrid) return;
-    projectsGrid.innerHTML = "";
-    projectData.forEach((project) => {
-      const card = document.createElement("article");
-      card.className = "project-card";
-      card.innerHTML = `
-                <img src="${project.image}" alt="${project.title}">
-                <div>
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="project-meta">
-                        ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join("")}
-                    </div>
-                    <div class="project-links">
-                        ${project.github ? `<a href="${project.github}" target="_blank">GitHub</a>` : ""}
-                        ${project.live ? `<a href="${project.live}" target="_blank">Live Demo</a>` : ""}
-                    </div>
-                </div>
-            `;
-      projectsGrid.appendChild(card);
-    });
-  }
+          const name = nameEl ? nameEl.textContent.trim() : "Winrose Kiriswa";
+          const title = titleEl ? titleEl.textContent.trim() : "Graphic Designer & Web Developer";
+          const profileSrc = profileImg ? profileImg.src : null;
+          const about = aboutEl ? aboutEl.textContent.trim() : "";
+          const skills = Array.from(skillEls).map((s) => s.textContent.trim());
 
-  function renderPortfolio(filter = "all") {
+          // Use projectData array (in this file) for project highlights if available
+          const projectsList = (typeof projectData !== "undefined" && Array.isArray(projectData))
+            ? projectData.slice(0, 4).map(p => `<li><strong>${p.title}</strong>: ${p.description}</li>`).join("")
+            : "";
+
+          // Compose HTML
+          let html = "";
+          html += `<div style=\"max-width:780px; padding:20px; font-family: Arial, Helvetica, sans-serif; color:#111;\">`;
+          if (profileSrc) {
+            html += `<div style=\"float:right; width:110px; height:110px; overflow:hidden; border-radius:6px; margin-left:12px;\"><img src=\"${profileSrc}\" style=\"width:100%;height:100%;object-fit:cover;\"></div>`;
+          }
+          html += `<h1 style=\"margin:0 0 6px 0; font-size:24px;\">${name}</h1>`;
+          html += `<p style=\"margin:0 0 12px 0; color:#555;\">${title}</p>`;
+          html += `<hr style=\"border:none;border-top:1px solid #e6e6e6;margin:12px 0;\">`;
+          html += `<section><h2 style=\"font-size:16px;margin-bottom:6px;\">About</h2><p style=\"margin:0 0 10px 0;\">${about}</p></section>`;
+
+          if (skills.length) {
+            html += `<section><h2 style=\"font-size:16px;margin-bottom:6px;\">Skills</h2><ul style=\"margin:0 0 10px 18px;\">`;
+            skills.forEach(s => { html += `<li>${s}</li>`; });
+            html += `</ul></section>`;
+          }
+
+          if (projectsList) {
+            html += `<section><h2 style=\"font-size:16px;margin-bottom:6px;\">Selected Projects</h2><ul style=\"margin:0 0 10px 18px;\">${projectsList}</ul></section>`;
+          }
+
+          // Contact details from page
+          const contactEmail = document.querySelector('.contact-details a[href^="mailto:"]');
+          const contactPhone = document.querySelector('.contact-details a[href^="tel:"]');
+          html += `<section><h2 style=\"font-size:16px;margin-bottom:6px;\">Contact</h2><p style=\"margin:0;\">${contactEmail ? contactEmail.textContent.trim() : 'kiriswawinrose@gmail.com'}${contactPhone ? ' • ' + contactPhone.textContent.trim() : ''}</p></section>`;
+
+          html += `<div style=\"margin-top:20px;font-size:11px;color:#666;\">Generated from portfolio site</div>`;
+          html += `</div>`;
+
+          cv.innerHTML = html;
+          cv.style.display = "block";
+
+          const opt = {
+            margin: 0.4,
+            filename: "Winrose_Kiriswa_CV.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+          };
+
+          try {
+            if (typeof window.html2pdf !== "function") {
+              await ensureHtml2Pdf();
+            }
+            await window.html2pdf().set(opt).from(cv).save();
+          } catch (err) {
+            console.error("PDF generation error", err);
+            alert("Failed to generate PDF. Check console for details or try again.");
+          } finally {
+            cv.style.display = "none";
+          }
+        });
     if (!portfolioGrid) return;
     portfolioGrid.innerHTML = "";
     const items = portfolioData.filter(
