@@ -252,12 +252,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Download CV as PDF
   const downloadBtn = document.getElementById("download-cv");
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error(`Failed to load ${src}`));
+      document.head.appendChild(s);
+    });
+  }
+
+  async function ensureHtml2Pdf() {
+    if (typeof window.html2pdf === "function") return;
+    const cdn =
+      "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+    await loadScript(cdn);
+    if (typeof window.html2pdf !== "function")
+      throw new Error("html2pdf failed to initialize");
+  }
+
   if (downloadBtn) {
-    downloadBtn.addEventListener("click", (e) => {
+    downloadBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const cv = document.getElementById("cv-content");
       if (!cv) return alert("CV content not found");
-      // show content briefly for rendering
       cv.style.display = "block";
 
       const opt = {
@@ -268,18 +287,19 @@ document.addEventListener("DOMContentLoaded", function () {
         jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
       };
 
-      html2pdf()
-        .set(opt)
-        .from(cv)
-        .save()
-        .then(() => {
-          cv.style.display = "none";
-        })
-        .catch((err) => {
-          cv.style.display = "none";
-          console.error("PDF generation error", err);
-          alert("Failed to generate PDF. See console for details.");
-        });
+      try {
+        if (typeof window.html2pdf !== "function") {
+          await ensureHtml2Pdf();
+        }
+        await window.html2pdf().set(opt).from(cv).save();
+      } catch (err) {
+        console.error("PDF generation error", err);
+        alert(
+          "Failed to generate PDF. Check console for details or try again.",
+        );
+      } finally {
+        cv.style.display = "none";
+      }
     });
   }
 });
